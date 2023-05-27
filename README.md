@@ -84,7 +84,7 @@ This project is to show how I would design a full stack blog. It's design is pul
 [![Connect Session Sequelize](https://img.shields.io/badge/Database-MySQL-ff8000?style=plastic&logo=sequelize&logoWidth=10)](https://www.npmjs.com/package/connect-session-sequelize)
 [![CSS3](https://img.shields.io/badge/Language-CSS-ffff00?style=plastic&logo=css3&logoWidth=10)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Dotenv](https://img.shields.io/badge/Package-Dotenv-80ff00?style=plastic&logo=dotenv&logoWidth=10)](https://www.npmjs.com/package/dotenv)
-[![Express](https://img.shields.io/badge/Framework-Express-00ff00?style=plastic&logo=Express&logoWidth=10)](https://expressjs.com/)
+[![Express](https://img.shields.io/badge/Framework-Express-00ff00?style=plastic&logo=Express&logoWidth=10)](https://www.npmjs.com/package/express)
 [![Express Session](https://img.shields.io/badge/Package-Express_Session-00ff80?style=plastic&logo=Express&logoWidth=10)](https://www.npmjs.com/package/express-session)
 [![Handlebars](https://img.shields.io/badge/Package-Handlebars-00ffff?style=plastic&logo=handlebarsdotjs&logoWidth=10)](https://www.npmjs.com/package/express-handlebars)
 [![Heroku](https://img.shields.io/badge/Cloud-Heroku-0080ff?style=plastic&logo=Heroku&logoWidth=10)](https://devcenter.heroku.com/categories/reference)
