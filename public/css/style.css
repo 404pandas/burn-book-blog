@@ -1,0 +1,181 @@
+/* ============================================================ *\
+*         Mary Elenius Final Portfolio General Stylesheet         *
+*      https://coolors.co/8cd5cf-fafbfb-4f565d-d5d8d7-000000     *
+*                         05/02/2023                             *
+\* -----------------------------------------------------------  */
+
+/*                     Table of Contents:                       *\
+
+* UNIVERSAL & VARIABLES
+  ## Universal Selectors
+  ## Color Variables
+
+* ELEMENTS
+  ## HTML
+  ## Body
+
+* FLEXBOX
+
+* TYPOGRAPHY 
+  ## Font Family
+  ## Text wrap
+  ## Code blocks
+  ## Header Tags
+
+* COMPONENTS
+ ## Header
+ ## Glitch Shape
+ ## Buttons
+ ## Footer
+
+* HELPERS
+ ## Margin Auto
+
+* MEDIA QUERIES
+ ## 	Mobile Devices <= 600px
+ ## Tablet Devices > 600px
+ ## Desktop Devices > 992px
+ ## Large Desktop Devices > 1200px
+
+/* ============================================================ *\
+*                     Universal & Variables                      *
+\* -----------------------------------------------------------  */
+
+/* --------------      Universal Selectors       -------------- */
+
+/*      Universal- removes padding & margin & set box-sizing    */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*       Universal- removes text decoration from li and a      */
+li,
+a {
+  text-decoration: none;
+}
+
+/* ----------------      Color Variables       ---------------- */
+
+/*       Color variables for easy selection throughout CSS      */
+:root {
+  --light-blue: #0d7373;
+  --dark-blue: #032620;
+  --white: #fafbfbff;
+  --dark-green: #568c04;
+  --light-green: #80ca09;
+  --yellow: #f2cc0f;
+  --black: #000000ff;
+}
+
+/* ============================================================ *\
+*                           Elements                             *
+\* -----------------------------------------------------------  */
+
+/* html */
+
+html {
+  color: var(--dark-blue);
+  background-color: var(--dark-blue);
+}
+
+/* ============================================================ *\
+*                           Flexbox                              *
+\* -----------------------------------------------------------  */
+
+/*                Class selector to apply flexbox                */
+.flexbox {
+  display: flex !important;
+}
+
+/*         Class selector to apply column flex direction         */
+.flexColumn {
+  flex-direction: column;
+}
+
+/*          Class selector to apply row flex direction           */
+.flexRow {
+  flex-direction: row;
+}
+
+.flexNoWrap {
+  flex-wrap: nowrap;
+}
+
+/* ============================================================ *\
+*                          Typography                            *
+\* -----------------------------------------------------------  */
+
+/* -----------------       Font Family       ------------------ */
+
+/* ------------------       Text Wrap       ------------------- */
+
+/*              Class selector to apply text wrap               */
+.text-wrap {
+  /* Since CSS 2.1 */
+  white-space: pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -moz-pre-wrap;
+  /* Opera 4-6 */
+  white-space: -pre-wrap;
+  /* Opera 7 */
+  white-space: -o-pre-wrap;
+  /* Internet Explorer 5 */
+  word-wrap: break-word;
+}
+
+.no-wrap {
+  /* Since CSS 2.1 */
+  white-space: nowrap;
+  /* Mozilla, since 1999 */
+  white-space: -moz-no-wrap;
+  /* Opera 4-6 */
+  white-space: -no-wrap;
+  /* Opera 7 */
+  white-space: -o-no-wrap;
+  /* Internet Explorer 5 */
+  word-wrap: normal;
+}
+
+/* ============================================================ *\
+*                          Components                            *
+\* -----------------------------------------------------------  */
+
+/* -------------------       Header       --------------------- */
+
+/* ============================================================ *\
+*                           Helpers                              *
+\* -----------------------------------------------------------  */
+
+/* ============================================================ *\
+*      Media Queries (Alphabetical by screen size break          *
+\* -----------------------------------------------------------  */
+
+/* ----------       Mobile Devices <= 600px S       ------------ */
+
+@media only screen and (max-width: 599px) {
+}
+
+/* ----------       Tablet Devices > 600px M      ------------- */
+
+@media only screen and (max-width: 600px) {
+}
+
+/* ----------       Desktop Devices > 992px L     ------------- */
+
+@media only screen and (max-width: 992px) {
+}
+
+/* ------       Large Desktop Devices > 1200px  XL      ------ */
+
+@media only screen and (max-width: 1200px) {
+}
+
+/* ============================================================ *\
+*                        Example Heading                         *
+\* -----------------------------------------------------------  */
+
+/* -------------       Example Sub-Heading       --------------- */
