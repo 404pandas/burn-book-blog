@@ -205,7 +205,7 @@ footer {
   position: absolute;
   bottom: 120px;
   z-index: 500;
-  width: 600vw;
+  width: 100vw;
   height: 180px;
   background-size: contain;
 }

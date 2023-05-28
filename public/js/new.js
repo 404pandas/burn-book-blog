@@ -1,15 +1,21 @@
-// new post form handler
-// prevent default
+const newFormHandler = async function (event) {
+  event.preventDefault();
 
-// query selectors
-// post-title input
-// post-body text area
+  const title = document.querySelector('input[name="post-title"]').value;
+  const body = document.querySelector('textarea[name="post-body"]').value;
 
-// post fetch
-// method
-// body
-// headers
+  await fetch(`/api/post`, {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      body,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-// redirect to dashboard
+  document.location.replace("/dashboard");
+};
 
-// new post form query selector + event listener
+document
+  .querySelector("#new-post-form")
+  .addEventListener("submit", newFormHandler);

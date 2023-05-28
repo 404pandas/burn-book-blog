@@ -6,13 +6,18 @@
     "start": "nodemon server.js"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.0.3",
     "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
+    "express-handlebars": "^7.0.7",
+    "express-session": "^1.17.3",
     "material-icons": "^1.13.7",
-    "morgan": "~1.9.1"
+    "materialize-css": "^1.0.0-rc.2",
+    "morgan": "~1.9.1",
+    "mysql2": "^3.3.3",
+    "sequelize": "^6.31.1",
+    "simple-icons": "^8.15.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
