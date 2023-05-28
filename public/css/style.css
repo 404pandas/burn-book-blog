@@ -82,6 +82,15 @@ html {
   background-color: var(--dark-blue);
 }
 
+footer {
+  height: 145px;
+  z-index: 700;
+  background-color: #263d5a;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+}
+
 /* ============================================================ *\
 *                           Flexbox                              *
 \* -----------------------------------------------------------  */
@@ -145,7 +154,174 @@ html {
 \* -----------------------------------------------------------  */
 
 /* -------------------       Header       --------------------- */
+#nav {
+  background-color: transparent !important;
+  background-image: url("/images/header-background.png") !important;
+  height: 145px;
+  background-size: contain;
+}
 
+#city-header {
+  min-width: 40vw;
+  max-width: 40vw;
+  z-index: 500;
+  object-fit: fill;
+  position: absolute;
+  top: 48px;
+}
+
+#header-wrapper {
+  background-image: url("/images/header-background.png");
+  width: 100vw;
+  background-size: contain;
+}
+
+#city-sign {
+  position: absolute;
+  background-image: url("/images/page-title-container.png");
+  width: 17vw;
+  left: 45vw;
+  text-align: center;
+  color: var(--yellow);
+  font-size: 1.5rem;
+  top: 30px;
+}
+
+#full-nav {
+  position: absolute;
+  right: 5vw;
+  top: 30px;
+}
+
+/* -------------------       Background       --------------------- */
+
+#background-back-layer {
+  background-image: url("/images/background-back-layer.png");
+  z-index: 400;
+}
+
+#background-front-layer {
+  background-image: url("/images/background-front-layer.png");
+  position: absolute;
+  bottom: 120px;
+  z-index: 500;
+  width: 600vw;
+  height: 180px;
+  background-size: contain;
+}
+s #background-city {
+  background-image: url("/images/background-city.png");
+  z-index: 600;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* footer */
+#footerContainer {
+  display: flex;
+  justify-content: space-evenly;
+  color: var(--light-green);
+}
+
+#leftFooter {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  justify-content: space-around;
+  margin: 12px;
+}
+
+#rightFooter {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  margin: 12px;
+  justify-content: space-around;
+}
+
+#rightFooter h4 {
+  font-size: 1.5rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#social-icons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.valign-text {
+  display: flex;
+}
+.valign-text i {
+  margin-right: 7px;
+}
+
+/* Login page */
+#login-card {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 45vh;
+  margin: auto;
+  padding: 10px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  z-index: 1000;
+}
+
+.login-input {
+  width: 80%;
+  margin: auto;
+}
+
+#login-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#login-card-header {
+  display: flex;
+  margin-left: 3%;
+}
+
+#signup-button {
+  display: flex;
+  align-items: center;
+}
+
+/* Signu[ page */
+#signup-card {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  height: 45vh;
+  margin: auto;
+  padding: 10px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  z-index: 1000;
+}
+
+.signup-input {
+  width: 80%;
+  margin: auto;
+}
+
+#signup-footer {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#signup-card-header {
+  display: flex;
+  margin-left: 3%;
+}
+
+#login-button {
+  display: flex;
+  align-items: center;
+}
 /* ============================================================ *\
 *                           Helpers                              *
 \* -----------------------------------------------------------  */

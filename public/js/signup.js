@@ -1,17 +1,25 @@
-// signup form handler
-// prevent default
+const signupFormHandler = async function (event) {
+  event.preventDefault();
 
-// queryselectors
-// username
-// password
+  const usernameElement = document.querySelector("#username-input-signup");
+  const passwordElement = document.querySelector("#password-input-signup");
 
-// fetch signup
-// method
-// body
-// headers
+  const response = await fetch("/api/user", {
+    method: "POST",
+    body: JSON.stringify({
+      username: usernameElement.value,
+      password: passwordElement.value,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-// redirect to dashboard
+  if (response.ok) {
+    document.location.replace("/dashboard");
+  } else {
+    alert("Failed to sign up, please try again");
+  }
+};
 
-// catch err
-
-// signup form query selector + event listener
+document
+  .querySelector("#signup-form")
+  .addEventListener("submit", signupFormHandler);

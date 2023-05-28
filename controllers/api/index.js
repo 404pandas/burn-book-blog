@@ -1,11 +1,7 @@
-// express router
+const router = require("express").Router();
 
-// import user routes
+const userRoutes = require("./user-routes.js");
 
-// import post routes
+router.use("/user", userRoutes);
 
-// import comment routes
-
-// router.use for routes
-
-// export router
+module.exports = router;

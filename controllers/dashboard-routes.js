@@ -1,23 +1,15 @@
-// express router
+const router = require("express").Router();
+const { Post } = require("../models/");
+const withAuth = require("../utils/auth");
 
-// post model
+router.get("/", withAuth, async (req, res) => {
+  try {
+    res.render("all-posts-admin", {
+      layout: "dashboard",
+    });
+  } catch (err) {
+    res.redirect("login");
+  }
+});
 
-// utils/auth
-
-// Post.findAll
-
-// try- Post.findAll
-
-// then map posts
-
-// res.render for admin
-
-// catch err, redirect to login
-
-// new post
-
-// edit single post
-
-// catch err, redirect to login
-
-// export router
+module.exports = router;

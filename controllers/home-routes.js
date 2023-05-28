@@ -1,13 +1,31 @@
-// express router
+const router = require("express").Router();
+const { Post, Comment, User } = require("../models/");
 
-// import models for post comment and user
+// get all posts for homepage
+router.get("/", async (req, res) => {
+  try {
+    res.render("all-posts");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-// get all posts (homepage)
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
-// get single post (homepage)
+  res.render("login");
+});
 
-// login
+router.get("/signup", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
 
-// signup
+  res.render("signup");
+});
 
-// export router
+module.exports = router;

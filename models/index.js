@@ -1,6 +1,7 @@
 // relations go here
 
 // import user
+const User = require("./User");
 
 // import post
 
@@ -13,3 +14,6 @@
 // comment belongs to user
 
 // export user comment and post
+module.exports = {
+  User,
+};

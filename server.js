@@ -5,25 +5,24 @@ const express = require("express");
 // express session
 const session = require("express-session");
 // handlebars
-
+const exphbs = require("express-handlebars");
 // helpers
-
+const helper = require("./utils/helpers");
 // app express
 const app = express();
 // port
 const PORT = 3001 || process.env.PORT;
 // sequalize db config
+const sequelize = require("./config/config");
 // sequelize store (connect-session-sequelize)
-const SequelizeStore = require("connect-session-sequelize")(
-  connect.session.Store
-);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // sess
-var sess = {
-  secret: "super secret alien",
+const sess = {
+  secret: "Super secret secret",
   cookie: {
     // max age
-    maxAge: 60000,
+    maxAge: 6000000,
     // httponly
     httpOnly: true,
     // secure
@@ -39,11 +38,14 @@ var sess = {
 // app.use session
 app.use(session(sess));
 
-// hbs
+// hbs format date
+const hbs = exphbs.create({ helper });
 
 // app.engine for hbs
+app.engine("handlebars", hbs.engine);
 
 // app.set for hbs
+app.set("view engine", "handlebars");
 
 // app.use json
 app.use(express.json());
@@ -54,8 +56,9 @@ app.use(express.urlencoded({ extended: false }));
 // app.use static
 app.use(express.static(path.join(__dirname, "public")));
 // require controllers
-
+app.use(require("./controllers/"));
 // app.listen
 app.listen(PORT, () => {
-  console.log(`"App listening on port: ${PORT} - http://localhost:${PORT}"`);
+  console.log(`App listening on port: ${PORT} - http://localhost:${PORT}`);
+  sequelize.sync({ force: false });
 });

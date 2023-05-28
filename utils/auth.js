@@ -1,5 +1,9 @@
-// withauth if/else logic
-// if no user id, redirect to login
-// else keep going
+const withAuth = (req, res, next) => {
+  if (!req.session.userId) {
+    res.redirect("/login");
+  } else {
+    next();
+  }
+};
 
-// export
+module.exports = withAuth;

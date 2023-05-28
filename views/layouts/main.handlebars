@@ -1,0 +1,100 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Blog</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/background-image.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body id="background-back-layer">
+    {{! header }}
+    <nav id="nav">
+      <div class="nav-wrapper" id="header-wrapper">
+        {{! City }}
+        <img id="city-header" src="/images/header-city.png" />
+        {{! Sign }}
+        <a href="#" id="city-sign">
+          Tech Blog
+        </a>
+        {{! Nav }}
+        <div id="full-nav">
+          <ul class="right hide-on-med-and-down" id="nav-mobile">
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul></div>
+      </div>
+    </nav>
+    {{! foreground }}
+    <div id="background-front-layer">
+      <div id="background-city"></div>
+    </div>
+
+    {{! TODO- insert aliens after MVP }}
+
+    {{{body}}}
+
+    {{! footer }}
+    <footer id="footerContainer">
+      <div id="leftFooter">
+        {{! icon }}
+        <div class="valign-text" id="location">
+          <i class="material-icons">location_on</i>
+          United States
+        </div>
+        {{! icon }}
+        <div class="valign-text" id="phone">
+
+          <i class="material-icons">phone</i>
+          1 (772) 834 2342</div>
+        {{! icon }}
+        <div class="valign-text" id="email">
+
+          <i class="material-icons">email</i>
+
+          mary.panda.jackson@gmail.com</div>
+      </div>
+      <div id="rightFooter">
+        <h4>Adopt Me</h4>
+        I am a purebred Overwhelmed Homosapien looking for a place to call home.
+        If you are interested in hiring me, please contact me!
+        <div id="social-icons">
+          {{! linkedin icon }}
+          <img
+            href="https://linkedin.com/in/404pandas"
+            height="24"
+            width="24"
+            src="https://cdn.simpleicons.org/linkedin/80ca09"
+          />
+          {{! share icon }}
+          <i class="material-icons">share</i>
+          {{! github icon }}
+          <img
+            href="https://github.com/404pandas"
+            height="24"
+            width="24"
+            src="https://cdn.simpleicons.org/github/80ca09"
+          />
+        </div>
+      </div>
+    </footer>
+    {{! javascript imports }}
+    <script src="/js/logout.js"></script>
+  </body>
+</html>
