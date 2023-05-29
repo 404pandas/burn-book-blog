@@ -33,11 +33,15 @@
         </a>
         {{! Nav }}
         <div id="full-nav">
-          <ul class="right hide-on-med-and-down" id="nav-mobile">
-            <li><a href="/">Home</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="#">Logout</a></li>
+          <ul class="right hide-on-sm-and-down" id="nav-mobile">
+            <li><a href="/dashboard">Dashboard</a></li><li><a
+                id="logout-link"
+              >Logout</a></li>
+            {{#if loggedIn}}
+              <li><a href="/">Home</a></li>
+            {{else}}
+              <li><a href="/login">Login</a></li>
+            {{/if}}
           </ul></div>
       </div>
     </nav>
@@ -95,6 +99,8 @@
       </div>
     </footer>
     {{! javascript imports }}
-    <script src="/js/logout.js"></script>
+    {{#if loggedIn}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>

@@ -322,6 +322,11 @@ s #background-city {
   display: flex;
   align-items: center;
 }
+
+/* Post formatting */
+#all-posts {
+  height: 80vh;
+}
 /* ============================================================ *\
 *                           Helpers                              *
 \* -----------------------------------------------------------  */
