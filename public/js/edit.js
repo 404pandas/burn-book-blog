@@ -1,25 +1,36 @@
-// query selectors
-// post-id input
+const postId = document.querySelector('input[name="post-id"]').value;
 
-// form handler edit
-// prevent default
+const editFormHandler = async function (event) {
+  event.preventDefault();
 
-// post-title input
-// post-body text area
+  const title = document.querySelector('input[name="post-title"]').value;
+  const body = document.querySelector('textarea[name="post-body"]').value;
 
-// fetch by post id
-// method
-// body
-// headers
+  await fetch(`/api/post/${postId}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      title,
+      body,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-// redirect to dashboard
+  document.location.replace("/dashboard");
+};
 
-// delete click handler
+const deleteClickHandler = async function () {
+  await fetch(`/api/post/${postId}`, {
+    method: "DELETE",
+  });
 
-// fetch by post id
-// method
-//  redirect to dashboard
+  document.location.replace("/dashboard");
+};
 
-// edit form queryselector + event listener
-
-// delete query selector + event listener
+document
+  .querySelector("#edit-post-form")
+  .addEventListener("submit", editFormHandler);
+document
+  .querySelector("#delete-btn")
+  .addEventListener("click", deleteClickHandler);

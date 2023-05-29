@@ -1,25 +1,24 @@
-// relations go here
-
-// import user
 const User = require("./User");
-
-// import post
 const Post = require("./Post");
+const Comment = require("./Comment");
 
-// import comment
-
-// post belongs to user
 Post.belongsTo(User, {
   foreignKey: "userId",
   onDelete: "CASCADE",
 });
 
-// post has many comment
+Post.hasMany(Comment, {
+  foreignKey: "postId",
+  onDelete: "CASCADE",
+});
 
-// comment belongs to user
+Comment.belongsTo(User, {
+  foreignKey: "userId",
+  onDelete: "CASCADE",
+});
 
-// export user comment and post
 module.exports = {
   User,
+  Comment,
   Post,
 };
