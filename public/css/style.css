@@ -83,12 +83,14 @@ html {
 }
 
 footer {
-  height: 145px;
+  min-height: 145px;
+  max-height: 145px;
   z-index: 700;
   background-color: #263d5a;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
-  width: 100vw;
+  left: 0px;
+  right: 0px;
 }
 
 /* ============================================================ *\
@@ -202,14 +204,17 @@ footer {
 
 #background-front-layer {
   background-image: url("/images/background-front-layer.png");
-  position: absolute;
-  bottom: 120px;
+  position: fixed;
+  bottom: 0px;
+  width: 100vw !important;
   z-index: 500;
-  width: 100vw;
   height: 180px;
   background-size: contain;
+  background-repeat: repeat-x;
+  margin-bottom: 70px;
 }
-s #background-city {
+
+#background-city {
   background-image: url("/images/background-city.png");
   z-index: 600;
   position: absolute;
