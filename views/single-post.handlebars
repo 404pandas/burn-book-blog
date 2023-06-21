@@ -4,7 +4,7 @@
     <div class="card-header">
       <h2>{{post.title}}</h2>
       <h4>{{post.User.username}}</h4>
-      <span>{{format_date post.created_at}}</span>
+      {{!-- <span>{{format_date post.created_at}}</span> --}}
     </div>
     <div class="card-body">
       <p>{{post.post_text}}</p>
@@ -26,7 +26,7 @@
             <p>
               &mdash;
               {{User.username}},
-              {{format_date createdAt}}
+              {{!-- {{format_date createdAt}} --}}
             </p>
           </div>
         {{/each}}

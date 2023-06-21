@@ -7,7 +7,7 @@ const session = require("express-session");
 // handlebars
 const exphbs = require("express-handlebars");
 // helpers
-const helpers = require("./utils/helpers");
+// const helpers = require("./utils/helpers");
 // app express
 const app = express();
 // port
@@ -39,7 +39,9 @@ const sess = {
 app.use(session(sess));
 
 // hbs format date
-const hbs = exphbs.create({ helpers });
+// const hbs = exphbs.create({ helpers });
+// hbs format date
+const hbs = exphbs.create();
 
 // app.engine for hbs
 app.engine("handlebars", hbs.engine);
