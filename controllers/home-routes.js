@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render("all-post", {
+    res.render("all-posts", {
       posts,
       loggedIn: req.session.loggedIn,
     });
@@ -25,10 +25,7 @@ router.get("/", async (req, res) => {
 // get single post
 router.get("/post/:id", async (req, res) => {
   try {
-    const postData = await Post.findByPk({
-      where: {
-        post_id: req.params.id,
-      },
+    const postData = await Post.findByPk(req.params.id, {
       include: [
         User,
         {

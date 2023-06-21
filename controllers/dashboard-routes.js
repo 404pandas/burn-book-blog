@@ -15,30 +15,33 @@ router.get("/", withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render("dashboard", {
+    res.render("'all-posts-admin'", {
       posts,
       loggedIn: req.session.loggedIn,
+      layout: "dashbaord",
     });
   } catch (err) {
-    res.status(500).json(err);
+    res.redirect("login");
   }
 });
 
 // get single post
 router.get("/update/:id", withAuth, async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User }],
-    });
+    const postData = await Post.findByPk(req.params.id);
 
-    const post = postData.get({ plain: true });
+    if (postData) {
+      const post = postData.get({ plain: true });
 
-    res.render("edit-post", {
-      ...post,
-      loggedIn: req.session.loggedIn,
-    });
+      res.render("edit-post", {
+        layout: "dashboard",
+        post,
+      });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
-    res.status(500).json(err);
+    res.redirect("login");
   }
 });
 module.exports = router;

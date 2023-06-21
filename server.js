@@ -7,7 +7,7 @@ const session = require("express-session");
 // handlebars
 const exphbs = require("express-handlebars");
 // helpers
-const helper = require("./utils/helpers");
+const helpers = require("./utils/helpers");
 // app express
 const app = express();
 // port
@@ -19,7 +19,7 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 // sess
 const sess = {
-  secret: "Super secret secret",
+  secret: "iwanttobelieve",
   cookie: {
     // max age
     maxAge: 6000000,
@@ -39,7 +39,7 @@ const sess = {
 app.use(session(sess));
 
 // hbs format date
-const hbs = exphbs.create({ helper });
+const hbs = exphbs.create({ helpers });
 
 // app.engine for hbs
 app.engine("handlebars", hbs.engine);

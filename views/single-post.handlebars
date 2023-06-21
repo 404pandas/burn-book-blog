@@ -1,43 +1,54 @@
-{{! Styling for posts }}
-<article class="post">
-  <div class="title">
-    <h2>{{title}}</h2>
-    <h4>{{user.username}}</h4>
-    <span>{{format_date created_at}}</span>
-    <p>{{post_text}}</p>
-  </div>
-
-  <div class="meta">
-    <a href="/post/{{id}}">{{comments.length}}
-      {{format_plural "comment" comments.length}}</a>
-  </div>
-</article>
-{{#if loggedIn}}
-  <form class="comment-form">
-    <div>
-      <textarea name="comment-body"></textarea>
+<div class="post">
+  {{! Styling for posts }}
+  <article class="card">
+    <div class="card-header">
+      <h2>{{post.title}}</h2>
+      <h4>{{post.User.username}}</h4>
+      <span>{{format_date post.created_at}}</span>
     </div>
-
-    <div>
-      <button type="submit">add comment</button>
+    <div class="card-body">
+      <p>{{post.post_text}}</p>
     </div>
-  </form>
-{{/if}}
+  </article>
 
-{{! Styling for comments }}
-<div class="comments">
-  {{#each this}}
-    <section class="comment">
-      <div class="meta">
-        {{user.username}}
-        on
-        {{format_date created_at}}
+  {{#if post.Comments}}
+    <section class="card">
+      <div class="card-header">
+        <h3>Comments</h3>
       </div>
-      <div class="text">
-        {{comment_text}}
+
+      <div class="card-body">
+        {{#each post.Comments}}
+          <div>
+            <p>
+              {{body}}
+            </p>
+            <p>
+              &mdash;
+              {{User.username}},
+              {{format_date createdAt}}
+            </p>
+          </div>
+        {{/each}}
       </div>
     </section>
-  {{/each}}
+  {{/if}}
+
+  <form id="comment-form-new" class="card">
+    <div class="card-header">
+      <h3>Add New Comment</h3>
+    </div>
+    <div class="card-body">
+
+      <input type="hidden" name="post-id" value="{{post.id}}" />
+
+      <label class="form-label" for="comment-body">Comment</label>
+
+      <textarea name="comment-body" class="form-input"></textarea>
+
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
 </div>
 
 <script src="/javascript/comment.js"></script>
