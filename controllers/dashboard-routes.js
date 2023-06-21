@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Comment, User } = require("../models/");
+const { Post } = require("../models/");
 const withAuth = require("../utils/auth");
 
 // get all posts for homepage
@@ -9,7 +9,6 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      include: [{ model: User }],
     });
 
     // Serialize data so the template can read it

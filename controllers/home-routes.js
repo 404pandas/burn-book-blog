@@ -1,14 +1,12 @@
 const router = require("express").Router();
-const sequelize = require("../config/config");
 const { Post, User, Comment } = require("../models");
-const withAuth = require("../utils/auth");
 
 // get all posts for homepage
 router.get("/", async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
-      include: [{ model: User }],
+      include: [User],
     });
 
     // Serialize data so the template can read it
@@ -25,28 +23,28 @@ router.get("/", async (req, res) => {
 });
 
 // get single post
-router.get("/post/:id", withAuth, async (req, res) => {
+router.get("/post/:id", async (req, res) => {
   try {
-    const commentData = await Comment.findAll({
+    const postData = await Post.findByPk({
       where: {
         post_id: req.params.id,
       },
-      include: [{ model: User }, { model: Post }],
+      include: [
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
     });
 
-    const postData = await Post.findByPk(req.params.id, {
-      include: [{ model: User }],
-    });
+    if (postData) {
+      const post = postData.get({ plain: true });
 
-    const post = postData.get({ plain: true });
-
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
-
-    res.render("single-post", {
-      ...post,
-      comments,
-      loggedIn: req.session.loggedIn,
-    });
+      res.render("single-post", { post });
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
     res.status(500).json(err);
   }
