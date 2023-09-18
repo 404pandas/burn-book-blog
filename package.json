@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
+    "postinstall": "npm run build",
     "seed": "node seeds/index.js"
   },
   "dependencies": {
