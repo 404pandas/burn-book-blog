@@ -11,7 +11,9 @@ const exphbs = require("express-handlebars");
 // app express
 const app = express();
 // port
-const PORT = 3001 || process.env.PORT;
+const PORT = process.env.PORT || 3001;
+// host
+const host = "0.0.0.0";
 // sequalize db config
 const sequelize = require("./config/config");
 // sequelize store (connect-session-sequelize)
@@ -60,7 +62,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // require controllers
 app.use(require("./controllers/"));
 // app.listen
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, host, () => {
   console.log(`App listening on port: ${PORT} - http://localhost:${PORT}`);
   sequelize.sync({ force: false });
 });
