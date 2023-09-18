@@ -22,7 +22,8 @@
     "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^2.3.3",
     "sequelize": "^5.22.5",
-    "simple-icons": "^8.15.0"
+    "simple-icons": "^8.15.0",
+    "webpack": "^5.88.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
