@@ -23,7 +23,8 @@
     "mysql2": "^2.3.3",
     "sequelize": "^5.22.5",
     "simple-icons": "^8.15.0",
-    "webpack": "^5.88.2"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
