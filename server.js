@@ -60,7 +60,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // require controllers
 app.use(require("./controllers/"));
 // app.listen
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`App listening on port: ${PORT} - http://localhost:${PORT}`);
   sequelize.sync({ force: false });
 });
