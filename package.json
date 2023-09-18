@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node server.js",
     "postinstall": "npm run build",
+    "build": "webpack",
     "seed": "node seeds/index.js"
   },
   "dependencies": {
