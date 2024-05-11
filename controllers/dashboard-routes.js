@@ -21,7 +21,7 @@ router.get('/', withGuard, async (req, res) => {
       currentPage: 'Dashboard',
     });
   } catch (err) {
-    res.redirect('login');
+    res.redirect('/login');
   }
 });
 
@@ -41,7 +41,7 @@ router.get('/update/:id', withGuard, async (req, res) => {
       res.status(404).end();
     }
   } catch (err) {
-    res.redirect('login');
+    res.redirect('/login');
   }
 });
 module.exports = router;
