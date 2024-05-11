@@ -1,68 +1,71 @@
-// path
-const path = require("path");
-// express
-const express = require("express");
-// express session
-const session = require("express-session");
-// handlebars
-const exphbs = require("express-handlebars");
-// helpers
-// const helpers = require("./utils/helpers");
-// app express
-const app = express();
-// port
-const PORT = process.env.PORT || 3001;
-// host
-const host = "0.0.0.0";
-// sequalize db config
-const sequelize = require("./config/config");
-// sequelize store (connect-session-sequelize)
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+// Local Modules
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
-// sess
+// Third-Party Modules
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+
+const sequelize = require('./config/config');
+// Create a new sequelize store using the express-session package
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+// Initialize an instance of Express.js
+const app = express();
+// Specify on which port the Express.js server will run
+const PORT = process.env.PORT || 3001;
+
+// Set up Handlebars.js as the default engine with custom helpers
+const hbs = exphbs.create({ helpers });
+
+// Sets up session and connect to our Sequelize db
+// Configure and link a session object with the sequelize store
 const sess = {
-  secret: "iwanttobelieve",
+  secret: 'Super secret secret',
+  // Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
   cookie: {
-    // max age
-    maxAge: 6000000,
-    // httponly
+    // maxAge sets the maximum age for the cookie to be valid. Here, the cookie (and session) will expire after one hour. The time should be given in milliseconds.
+    maxAge: 300000,
+    // httpOnly tells express-session to only store session cookies when the protocol being used to connect to the server is HTTP.
     httpOnly: true,
-    // secure
+    // secure tells express-session to only initialize session cookies when the protocol being used is HTTPS. Having this set to true, and running a server without encryption will result in the cookies not showing up in your developer console.
     secure: false,
-    // samesite
-    sameSite: "strict",
+    // sameSite tells express-session to only initialize session cookies when the referrer provided by the client matches the domain out server is hosted from.
+    sameSite: 'strict',
   },
   resave: false,
   saveUninitialized: true,
-  store: new SequelizeStore({ db: sequelize }),
+  // Sets up session store
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
-
-// app.use session
+// Add express-session and store as Express.js middleware
 app.use(session(sess));
 
-// hbs format date
-// const hbs = exphbs.create({ helpers });
-// hbs format date
-const hbs = exphbs.create();
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-// app.engine for hbs
-app.engine("handlebars", hbs.engine);
-
-// app.set for hbs
-app.set("view engine", "handlebars");
-
-// app.use json
+// Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// Static middleware pointing to the public folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use urlencoded
-app.use(express.urlencoded({ extended: false }));
+// Servers the routes to the server
+app.use(routes);
 
-// app.use static
-app.use(express.static(path.join(__dirname, "public")));
-// require controllers
-app.use(require("./controllers/"));
-// app.listen
-app.listen(PORT, host, () => {
-  console.log(`App listening on port: ${PORT} - http://localhost:${PORT}`);
-  sequelize.sync({ force: false });
+// Define a catch-all route to handle undefined routes
+app.use((req, res, next) => {
+  res.status(404).render('404', { is404: true });
+});
+
+// Starts the server to begin listening
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () =>
+    console.log(`Now listening on http://localhost:${PORT}`)
+  );
 });

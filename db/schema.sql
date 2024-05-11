@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS techblog;
-CREATE DATABASE techblog;
+DROP DATABASE IF EXISTS burnbook_db;
+CREATE DATABASE burnbook_db;

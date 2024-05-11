@@ -1,9 +1,9 @@
-const router = require("express").Router();
-const { Post } = require("../models/");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const { Post } = require('../models/');
+const { withGuard } = require('../utils/auth');
 
 // get all posts for homepage
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withGuard, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: {
@@ -15,33 +15,33 @@ router.get("/", withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render("'all-posts-admin'", {
+    res.render('dashboard', {
       posts,
       loggedIn: req.session.loggedIn,
-      layout: "dashbaord",
+      currentPage: 'Dashboard',
     });
   } catch (err) {
-    res.redirect("login");
+    res.redirect('login');
   }
 });
 
 // get single post
-router.get("/update/:id", withAuth, async (req, res) => {
+router.get('/update/:id', withGuard, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
 
     if (postData) {
       const post = postData.get({ plain: true });
 
-      res.render("edit-post", {
-        layout: "dashboard",
+      res.render('edit-post', {
         post,
+        currentPage: 'Dashboard',
       });
     } else {
       res.status(404).end();
     }
   } catch (err) {
-    res.redirect("login");
+    res.redirect('login');
   }
 });
 module.exports = router;

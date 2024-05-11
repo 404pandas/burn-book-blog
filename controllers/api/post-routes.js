@@ -1,8 +1,9 @@
-const router = require("express").Router();
-const { Post } = require("../../models/");
-const withAuth = require("../../utils/auth");
+const express = require('express');
+const postRouter = express.Router();
+const { Post } = require('../../models');
+const { apiGuard } = require('../../utils/auth');
 
-router.post("/", withAuth, async (req, res) => {
+postRouter.post('/', apiGuard, async (req, res) => {
   const body = req.body;
   try {
     const newPost = await Post.create({
@@ -11,11 +12,13 @@ router.post("/", withAuth, async (req, res) => {
     });
     res.json(newPost);
   } catch (err) {
-    res.status(500).json(err);
+    res
+      .status(500)
+      .json({ message: 'Error creating post', error: err.message });
   }
 });
 
-router.delete("/:id", withAuth, async (req, res) => {
+postRouter.delete('/:id', apiGuard, async (req, res) => {
   try {
     const [postData] = Post.destroy({
       where: {
@@ -26,14 +29,16 @@ router.delete("/:id", withAuth, async (req, res) => {
     if (postData > 0) {
       res.status(200).end();
     } else {
-      res.status(404).end();
+      res.status(404).json({ message: 'No post found with this id!' });
     }
   } catch (err) {
-    res.status(500).json(err);
+    res
+      .status(500)
+      .json({ message: 'Error deleting post', error: err.message });
   }
 });
 
-router.put("/:id", withAuth, async (req, res) => {
+postRouter.put('/:id', apiGuard, async (req, res) => {
   try {
     const [postData] = await Post.update(req.body, {
       where: {
@@ -44,12 +49,14 @@ router.put("/:id", withAuth, async (req, res) => {
     if (postData > 0) {
       res.status(200).json(postData);
     } else {
-      res.status(404).json({ message: "No post found with this id!" });
+      res.status(404).json({ message: 'No post found with this id!' });
       return;
     }
   } catch (err) {
-    res.status(500).json(err);
+    res
+      .status(500)
+      .json({ message: 'Error updating post', error: err.message });
   }
 });
 
-module.exports = router;
+module.exports = postRouter;

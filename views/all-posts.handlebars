@@ -1,9 +1,9 @@
-<div class="posts">
+<div class='posts'>
   {{#each posts}}
-    <div class="card">
-      <div class="card-header">
+    <div class='card'>
+      <div class='card-header'>
         <h2>
-          <a href="/post/{{id}}">{{title}}</a>
+          <a href='/post/{{id}}'>{{title}}</a>
         </h2>
         <p>Created by
           {{User.username}}
@@ -11,7 +11,7 @@
           {{!-- {{format_date date_created}} --}}
         </p>
       </div>
-      <div class="card-body">
+      <div class='card-body'>
         <p>
           {{content}}
         </p>

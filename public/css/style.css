@@ -11,8 +11,6 @@
   ## Color Variables
 
 * ELEMENTS
-  ## HTML
-  ## Body
 
 * FLEXBOX
 
@@ -24,12 +22,7 @@
 
 * COMPONENTS
  ## Header
- ## Glitch Shape
- ## Buttons
  ## Footer
-
-* HELPERS
- ## Margin Auto
 
 * MEDIA QUERIES
  ## 	Mobile Devices <= 600px
@@ -62,13 +55,12 @@ a {
 
 /*       Color variables for easy selection throughout CSS      */
 :root {
-  --light-blue: #0d7373;
-  --dark-blue: #032620;
+  --red: #d92332;
+  --maroon: #8c0f31;
   --white: #fafbfbff;
-  --dark-green: #568c04;
-  --light-green: #80ca09;
-  --yellow: #f2cc0f;
-  --black: #000000ff;
+  --dark-pink: #d93d76;
+  --light-pink: #f266b3;
+  --oh-god-my-eyes: #f2a0dc;
 }
 
 /* ============================================================ *\
@@ -79,14 +71,17 @@ a {
 
 html {
   color: var(--dark-blue);
-  background-color: var(--dark-blue);
+}
+
+body {
+  background-color: var(--light-pink);
 }
 
 footer {
   min-height: 145px;
   max-height: 145px;
   z-index: 700;
-  background-color: #263d5a;
+  background-color: var(--dark-pink);
   position: fixed;
   bottom: 0px;
   left: 0px;
@@ -98,22 +93,8 @@ footer {
 \* -----------------------------------------------------------  */
 
 /*                Class selector to apply flexbox                */
-.flexbox {
+.flexbox-turn-on {
   display: flex !important;
-}
-
-/*         Class selector to apply column flex direction         */
-.flexColumn {
-  flex-direction: column;
-}
-
-/*          Class selector to apply row flex direction           */
-.flexRow {
-  flex-direction: row;
-}
-
-.flexNoWrap {
-  flex-wrap: nowrap;
 }
 
 /* ============================================================ *\
@@ -122,69 +103,40 @@ footer {
 
 /* -----------------       Font Family       ------------------ */
 
-/* ------------------       Text Wrap       ------------------- */
-
-/*              Class selector to apply text wrap               */
-.text-wrap {
-  /* Since CSS 2.1 */
-  white-space: pre-wrap;
-  /* Mozilla, since 1999 */
-  white-space: -moz-pre-wrap;
-  /* Opera 4-6 */
-  white-space: -pre-wrap;
-  /* Opera 7 */
-  white-space: -o-pre-wrap;
-  /* Internet Explorer 5 */
-  word-wrap: break-word;
-}
-
-.no-wrap {
-  /* Since CSS 2.1 */
-  white-space: nowrap;
-  /* Mozilla, since 1999 */
-  white-space: -moz-no-wrap;
-  /* Opera 4-6 */
-  white-space: -no-wrap;
-  /* Opera 7 */
-  white-space: -o-no-wrap;
-  /* Internet Explorer 5 */
-  word-wrap: normal;
-}
-
 /* ============================================================ *\
 *                          Components                            *
 \* -----------------------------------------------------------  */
 
 /* -------------------       Header       --------------------- */
 #nav {
-  background-color: transparent !important;
-  background-image: url("/images/header-background.png") !important;
+  background-color: var(--dark-pink);
   height: 145px;
   background-size: contain;
 }
 
-#city-header {
-  min-width: 40vw;
-  max-width: 40vw;
-  z-index: 500;
+#logo {
+  height: 80px;
   object-fit: fill;
-  position: absolute;
-  top: 48px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 5%;
+}
+
+#logo-wrapper {
+  height: 100%;
 }
 
 #header-wrapper {
-  background-image: url("/images/header-background.png");
   width: 100vw;
   background-size: contain;
 }
 
-#city-sign {
+#current-page {
   position: absolute;
-  background-image: url("/images/page-title-container.png");
+  background-image: url('/images/page-title-container.png');
   width: 17vw;
-  left: 45vw;
+  left: 25vw;
   text-align: center;
-  color: var(--yellow);
   font-size: 1.5rem;
   top: 30px;
 }
@@ -197,25 +149,7 @@ footer {
 
 /* -------------------       Background       --------------------- */
 
-#background-back-layer {
-  background-image: url("/images/background-back-layer.png");
-  z-index: 400;
-}
-
-#background-front-layer {
-  background-image: url("/images/background-front-layer.png");
-  position: fixed;
-  bottom: 0px;
-  width: 100vw !important;
-  z-index: 500;
-  height: 180px;
-  background-size: contain;
-  background-repeat: repeat-x;
-  margin-bottom: 70px;
-}
-
 #background-city {
-  background-image: url("/images/background-city.png");
   z-index: 600;
   position: absolute;
   bottom: 0px;
