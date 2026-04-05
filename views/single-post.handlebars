@@ -1,54 +1,47 @@
-<div class="post">
-  {{! Styling for posts }}
-  <article class="card">
-    <div class="card-header">
-      <h2>{{post.title}}</h2>
-      <h4>{{post.User.username}}</h4>
-      {{!-- <span>{{format_date post.created_at}}</span> --}}
-    </div>
-    <div class="card-body">
+<div class='single-post-wrap'>
+  <a href='/' class='back-link'>← Back to all posts</a>
+
+  <article class='burn-card'>
+    <h2 class='card-title'>{{post.title}}</h2>
+    <p class='card-meta'>by {{post.user.username}}</p>
+    <div class='card-content'>
       <p>{{post.post_text}}</p>
     </div>
+    {{#if isOwner}}
+      <div class='post-actions'>
+        <a href='/dashboard/update/{{post.id}}' class='btn-ghost'>Edit Post</a>
+      </div>
+    {{/if}}
   </article>
 
-  {{#if post.Comments}}
-    <section class="card">
-      <div class="card-header">
-        <h3>Comments</h3>
-      </div>
-
-      <div class="card-body">
-        {{#each post.Comments}}
-          <div>
-            <p>
-              {{body}}
-            </p>
-            <p>
-              &mdash;
-              {{User.username}},
-              {{!-- {{format_date createdAt}} --}}
-            </p>
+  {{#if post.comments}}
+    <div class='comments-section'>
+      <h3>Comments</h3>
+      {{#each post.comments}}
+        <div class='comment-block' data-comment-id='{{id}}'>
+          <p>{{comment_text}}</p>
+          <div class='comment-footer'>
+            <p class='comment-author'>— {{user.username}}</p>
+            {{#if isOwner}}
+              <button class='delete-comment-btn btn-red' data-id='{{id}}'>Delete</button>
+            {{/if}}
           </div>
-        {{/each}}
-      </div>
-    </section>
+        </div>
+      {{/each}}
+    </div>
   {{/if}}
 
-  <form id="comment-form-new" class="card">
-    <div class="card-header">
-      <h3>Add New Comment</h3>
-    </div>
-    <div class="card-body">
-
-      <input type="hidden" name="post-id" value="{{post.id}}" />
-
-      <label class="form-label" for="comment-body">Comment</label>
-
-      <textarea name="comment-body" class="form-input"></textarea>
-
-      <button type="submit" class="btn">Submit</button>
-    </div>
-  </form>
+  <div class='comment-form-card'>
+    <h3>Add a Comment</h3>
+    <form id='new-comment-form'>
+      <input type='hidden' name='post-id' value='{{post.id}}' />
+      <div class='form-group'>
+        <label for='comment-body'>What's the tea?</label>
+        <textarea id='comment-body' name='comment-body'></textarea>
+      </div>
+      <button type='submit' class='btn-pink'>Submit</button>
+    </form>
+  </div>
 </div>
 
-<script src="/javascript/comment.js"></script>
+<script src='/js/comment.js'></script>

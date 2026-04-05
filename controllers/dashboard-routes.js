@@ -25,6 +25,11 @@ router.get('/', withGuard, async (req, res) => {
   }
 });
 
+// new post form
+router.get('/new', withGuard, (req, res) => {
+  res.render('new', { loggedIn: req.session.loggedIn, currentPage: 'Dashboard' });
+});
+
 // get single post
 router.get('/update/:id', withGuard, async (req, res) => {
   try {

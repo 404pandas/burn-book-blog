@@ -39,7 +39,19 @@ router.get('/post/:id', async (req, res) => {
     if (postData) {
       const post = postData.get({ plain: true });
 
-      res.render('single-post', { post, currentPage: 'Home' });
+      if (post.comments) {
+        post.comments = post.comments.map((c) => ({
+          ...c,
+          isOwner: c.userId === req.session.user_id,
+        }));
+      }
+
+      res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn,
+        isOwner: post.userId === req.session.user_id,
+        currentPage: 'Home',
+      });
     } else {
       res.status(404).end();
     }

@@ -4,11 +4,11 @@ const { Post } = require('../../models');
 const { apiGuard } = require('../../utils/auth');
 
 postRouter.post('/', apiGuard, async (req, res) => {
-  const body = req.body;
   try {
     const newPost = await Post.create({
-      ...body,
-      user_id: req.session.user_id,
+      title: req.body.title,
+      post_text: req.body.post_text,
+      userId: req.session.user_id,
     });
     res.json(newPost);
   } catch (err) {

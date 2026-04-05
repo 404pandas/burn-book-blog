@@ -7,12 +7,11 @@ const commentFormHandler = async function (event) {
   ).value;
 
   if (postBody) {
-    postBody;
-    await fetch("/api/comments", {
+    await fetch("/api/comment", {
       method: "POST",
       body: JSON.stringify({
-        postId,
-        postBody,
+        post_id: postId,
+        comment_text: postBody,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -26,3 +25,13 @@ const commentFormHandler = async function (event) {
 document
   .querySelector("#new-comment-form")
   .addEventListener("submit", commentFormHandler);
+
+document.querySelectorAll(".delete-comment-btn").forEach((btn) => {
+  btn.addEventListener("click", async function () {
+    const commentId = this.dataset.id;
+
+    await fetch(`/api/comment/${commentId}`, { method: "DELETE" });
+
+    document.querySelector(`[data-comment-id="${commentId}"]`).remove();
+  });
+});

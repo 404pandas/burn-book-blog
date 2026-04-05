@@ -3,107 +3,65 @@
     <meta charset='UTF-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Tech Blog</title>
+    <title>The Burn Book</title>
     <link rel='stylesheet' type='text/css' href='/css/normalize.css' />
-    <!-- Compiled and minified CSS -->
+    <!-- Google Fonts: Permanent Marker + Caveat -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'
-    />
-    <!-- Compiled and minified JavaScript -->
-    <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
-    ></script>
-    <link
-      href='https://fonts.googleapis.com/icon?family=Material+Icons'
+      href='https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Permanent+Marker&display=swap'
       rel='stylesheet'
     />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css' />
     <link rel='stylesheet' type='text/css' href='/css/style.css' />
   </head>
   <body>
     {{#unless is404}}
-
-      {{! header }}
       <nav id='nav'>
-        <div class='nav-wrapper' id='header-wrapper'>
-          {{! City }}
-          <div id='logo-wrapper' class='flexbox-turn-on'>
-            <img id='logo' src='/images/burn-book-logo.svg' /></div>
-          {{! Sign }}
-          <a href='#' id='current-page'>
-            {{currentPage}}
-          </a>
-          {{! Nav }}
-          <div id='full-nav'>
-            <ul class='right hide-on-sm-and-down' id='nav-mobile'>
-              <li><a href='/'>Home</a></li>
-              {{#if loggedIn}}
-
-                <li><a href='/dashboard'>Dashboard</a></li>
-                <li><a href='#' id='logout-link'>Logout</a></li>
-              {{else}}
-
-                <li><a href='/login'>Login</a></li>
-              {{/if}}
-
-            </ul>
+        <div id='header-wrapper'>
+          <div id='logo-area'>
+            <img id='logo' src='/images/burn-book-logo.svg' alt='Burn Book Logo' />
+            <span id='site-title'><a href='/'>The Burn Book</a></span>
           </div>
+          <ul id='nav-links'>
+            <li><a href='/'>Home</a></li>
+            {{#if loggedIn}}
+              <li><a href='/dashboard'>Dashboard</a></li>
+              <li><button id='logout-link'>Logout</button></li>
+            {{else}}
+              <li><a href='/login'>Login</a></li>
+            {{/if}}
+          </ul>
         </div>
       </nav>
     {{/unless}}
 
     {{{body}}}
 
-    {{! footer }}
-
-    {{! javascript imports }}
     {{#unless is404}}
-
       <footer id='footerContainer'>
-        <div id='leftFooter'>
-          {{! icon }}
-          <div class='valign-text' id='location'>
-            <i class='material-icons'>location_on</i>
-            United States
+        <div id='footer-left'>
+          <p class='footer-brand'>The Burn Book</p>
+          <div class='footer-contact'>
+            <span><i class='fa-solid fa-location-dot'></i> United States</span>
+            <span><i class='fa-solid fa-phone'></i> (772) 834-2342</span>
+            <span><i class='fa-solid fa-envelope'></i> mary.panda.jackson@gmail.com</span>
           </div>
-          {{! icon }}
-          <div class='valign-text' id='phone'>
-
-            <i class='material-icons'>phone</i>
-            1 (772) 834 2342</div>
-          {{! icon }}
-          <div class='valign-text' id='email'>
-
-            <i class='material-icons'>email</i>
-
-            mary.panda.jackson@gmail.com</div>
         </div>
-        <div id='rightFooter'>
-          <h4>Adopt Me</h4>
-          I am a purebred Overwhelmed Homosapien looking for a place to call
-          home. If you are interested in hiring me, please contact me!
+        <div id='footer-right'>
+          <p class='footer-tagline'>Purebred Overwhelmed Homosapien seeking employment ✨</p>
           <div id='social-icons'>
-            {{! linkedin icon }}
-            <img
-              href='https://linkedin.com/in/404pandas'
-              height='24'
-              width='24'
-              src='https://cdn.simpleicons.org/linkedin/80ca09'
-            />
-            {{! share icon }}
-            <i class='material-icons'>share</i>
-            {{! github icon }}
-            <img
-              href='https://github.com/404pandas'
-              height='24'
-              width='24'
-              src='https://cdn.simpleicons.org/github/80ca09'
-            />
+            <a href='https://linkedin.com/in/404pandas' target='_blank' rel='noopener' aria-label='LinkedIn'>
+              <i class='fa-brands fa-linkedin'></i>
+            </a>
+            <a href='https://github.com/404pandas' target='_blank' rel='noopener' aria-label='GitHub'>
+              <i class='fa-brands fa-github'></i>
+            </a>
           </div>
         </div>
       </footer>
     {{/unless}}
-  </body>
 
+    <script src='/js/logout.js'></script>
+  </body>
 </html>
-<script src='/js/logout.js'></script>

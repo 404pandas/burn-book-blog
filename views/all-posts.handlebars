@@ -1,22 +1,18 @@
-<div class='posts'>
-    {{log post}}
-  {{#each posts}}
-    <div class='card'>
-      <div class='card-header'>
-        <h2>
+<div id='page-content'>
+  <div class='page-header'>
+    <h1>The Burn Book</h1>
+    <p>She doesn't even go here.</p>
+  </div>
+
+  <div id='posts-grid'>
+    {{#each posts}}
+      <div class='burn-card'>
+        <h2 class='card-title'>
           <a href='/post/{{id}}'>{{title}}</a>
         </h2>
-        <p>Created by
-          {{this.User.username}}
-          on
-          {{!-- {{format_date date_created}} --}}
-        </p>
+        <p class='card-meta'>by {{this.user.username}}</p>
+        <p class='card-content'>{{content}}</p>
       </div>
-      <div class='card-body'>
-        <p>
-          {{content}}
-        </p>
-      </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>

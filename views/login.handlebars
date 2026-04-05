@@ -1,22 +1,28 @@
-{{! Styling for login }}
-<div class="card" id="login-card">
-  <div class="card-header" id="login-card-header">
-    <h2>Login</h2>
+<div class='auth-page'>
+  <div class='page-header'>
+    <h1>Welcome Back</h1>
+    <p class='auth-subtitle'>You can't sit with us... unless you log in.</p>
   </div>
-  <form id="login-form" class="card-body">
-    <div class="login-input">
-      <label for="username-input-login">Username</label>
-      <input type="text" id="username-input-login" />
-    </div>
-    <div class="login-input">
-      <label for="password-input-login" class="form-label">Password</label>
-      <input type="password" id="password-input-login" />
-    </div>
-    <div id="login-footer">
-      <button type="submit" id="login-btn" class="btn">Login</button>
-      <a type="button" href="/signup" id="signup-button">Sign up instead</a>
-    </div>
-  </form>
+
+  <div class='burn-form'>
+    <h2>Login</h2>
+    <form id='login-form'>
+      <div class='form-group'>
+        <label for='username-input-login'>Username</label>
+        <input type='text' id='username-input-login' autocomplete='username' />
+      </div>
+      <div class='form-group'>
+        <label for='password-input-login'>Password</label>
+        <input type='password' id='password-input-login' autocomplete='current-password' />
+      </div>
+      <div class='form-actions'>
+        <button type='submit' id='login-btn' class='btn-pink'>Login</button>
+        <span class='auth-switch'>
+          New here? <a href='/signup'>Sign up instead</a>
+        </span>
+      </div>
+    </form>
+  </div>
 </div>
 
-<script src="/js/login.js"></script>
+<script src='/js/login.js'></script>

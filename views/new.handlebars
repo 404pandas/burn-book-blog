@@ -1,16 +1,23 @@
-<div class="post card">
-  <div class="card-header">
-    <h2>Create New Post</h2>
+<div class='auth-page'>
+  <div class='burn-form' style='max-width: 660px;'>
+    <h2>New Post</h2>
+    <form id='new-post-form'>
+      <div class='form-group'>
+        <label for='post-title'>Title</label>
+        <input type='text' id='post-title' name='post-title' placeholder='So fetch...' />
+      </div>
+
+      <div class='form-group'>
+        <label for='post-body'>Content</label>
+        <textarea id='post-body' name='post-body' placeholder='Write it in the burn book...'></textarea>
+      </div>
+
+      <div class='form-actions'>
+        <button type='submit' class='btn-pink'>Create Post</button>
+        <a href='/dashboard' class='btn-ghost'>Cancel</a>
+      </div>
+    </form>
   </div>
-  <form id="new-post-form" class="card-body">
-    <label class="form-label" for="post-title">Title</label>
-    <input type="text" name="post-title" class="form-input" />
-
-    <label class="form-label" for="post-body">Content</label>
-    <textarea name="post-body" class="form-input"></textarea>
-
-    <button type="submit" class="btn">Create</button>
-  </form>
 </div>
 
-<script src="/js/new.js"></script>
+<script src='/js/add-post.js'></script>

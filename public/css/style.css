@@ -1,301 +1,808 @@
 /* ============================================================ *\
-*         Mary Elenius Final Portfolio General Stylesheet         *
-*      https://coolors.co/8cd5cf-fafbfb-4f565d-d5d8d7-000000     *
-*                         05/02/2023                             *
-\* -----------------------------------------------------------  */
-
-/*                     Table of Contents:                       *\
-
-* UNIVERSAL & VARIABLES
-  ## Universal Selectors
-  ## Color Variables
-
-* ELEMENTS
-
-* FLEXBOX
-
-* TYPOGRAPHY 
-  ## Font Family
-  ## Text wrap
-  ## Code blocks
-  ## Header Tags
-
-* COMPONENTS
- ## Header
- ## Footer
-
-* MEDIA QUERIES
- ## 	Mobile Devices <= 600px
- ## Tablet Devices > 600px
- ## Desktop Devices > 992px
- ## Large Desktop Devices > 1200px
+*              BURN BOOK BLOG — Mean Girls Theme                  *
+*                   Mary Elenius / 404pandas                      *
+\* ============================================================ */
 
 /* ============================================================ *\
-*                     Universal & Variables                      *
-\* -----------------------------------------------------------  */
+*                     FONTS & VARIABLES                          *
+\* ============================================================ */
 
-/* --------------      Universal Selectors       -------------- */
+:root {
+  /* Colors */
+  --hot-pink: #e91e8c;
+  --deep-pink: #b5006b;
+  --bubblegum: #ffd6e8;
+  --cream: #fff8fa;
+  --red: #cc1a1a;
+  --dark-text: #2d001f;
+  --body-text: #1a1a1a;
+  --gold: #f2c94c;
+  --white: #ffffff;
+  --card-border: #e0a0c0;
+  --comment-bg: #fff0f6;
+  --muted-pink: #884466;
 
-/*      Universal- removes padding & margin & set box-sizing    */
-*,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+  /* Fonts */
+  --font-marker: 'Permanent Marker', cursive;
+  --font-hand: 'Patrick Hand', cursive;
 }
 
-/*       Universal- removes text decoration from li and a      */
+/* ============================================================ *\
+*                       RESET & BASE                             *
+\* ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 li,
 a {
   text-decoration: none;
 }
 
-/* ----------------      Color Variables       ---------------- */
-
-/*       Color variables for easy selection throughout CSS      */
-:root {
-  --red: #d92332;
-  --maroon: #8c0f31;
-  --white: #fafbfbff;
-  --dark-pink: #d93d76;
-  --light-pink: #f266b3;
-  --oh-god-my-eyes: #f2a0dc;
-}
-
-/* ============================================================ *\
-*                           Elements                             *
-\* -----------------------------------------------------------  */
-
-/* html */
-
 html {
-  color: var(--dark-blue);
+  font-size: 16px;
 }
 
 body {
-  background-color: var(--light-pink);
-}
-
-footer {
-  min-height: 145px;
-  max-height: 145px;
-  z-index: 700;
-  background-color: var(--dark-pink);
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-}
-
-/* ============================================================ *\
-*                           Flexbox                              *
-\* -----------------------------------------------------------  */
-
-/*                Class selector to apply flexbox                */
-.flexbox-turn-on {
-  display: flex !important;
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--body-text);
+  background-color: var(--hot-pink);
+  /* Polka dot pattern — so fetch */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 2px,
+    transparent 2px
+  );
+  background-size: 28px 28px;
+  min-height: 100vh;
+  padding-bottom: 100px;
 }
 
 /* ============================================================ *\
-*                          Typography                            *
-\* -----------------------------------------------------------  */
+*                        NAVIGATION                              *
+\* ============================================================ */
 
-/* -----------------       Font Family       ------------------ */
-
-/* ============================================================ *\
-*                          Components                            *
-\* -----------------------------------------------------------  */
-
-/* -------------------       Header       --------------------- */
 #nav {
-  background-color: var(--dark-pink);
-  height: 145px;
-  background-size: contain;
-}
-
-#logo {
-  height: 80px;
-  object-fit: fill;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 5%;
-}
-
-#logo-wrapper {
-  height: 100%;
+  background-color: var(--deep-pink);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
 }
 
 #header-wrapper {
-  width: 100vw;
-  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
 }
 
-#current-page {
-  position: absolute;
-  background-image: url('/images/page-title-container.png');
-  width: 17vw;
-  left: 25vw;
-  text-align: center;
-  font-size: 1.5rem;
-  top: 30px;
+#logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-#full-nav {
-  position: absolute;
-  right: 5vw;
-  top: 30px;
+#logo {
+  height: 56px;
+  object-fit: contain;
 }
 
-/* -------------------       Background       --------------------- */
-
-#background-city {
-  z-index: 600;
-  position: absolute;
-  bottom: 0px;
+#site-title {
+  font-family: var(--font-marker);
+  font-size: 2rem;
+  color: var(--white);
+  text-shadow: 3px 3px 0 var(--dark-text);
+  letter-spacing: 2px;
 }
 
-/* footer */
+#site-title a {
+  color: inherit;
+}
+
+#nav-links {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  list-style: none;
+}
+
+#nav-links li a,
+#logout-link {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+
+#nav-links li a:hover,
+#logout-link:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: var(--white);
+}
+
+#logout-link {
+  background: none;
+  border: none;
+  padding: 6px 18px;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+}
+
+/* ============================================================ *\
+*                          FOOTER                                *
+\* ============================================================ */
+
 #footerContainer {
+  background-color: var(--deep-pink);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
-  justify-content: space-evenly;
-  color: var(--light-green);
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  height: 76px;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+  color: var(--white);
+  font-family: var(--font-hand);
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
 }
 
-#leftFooter {
+#footer-left {
   display: flex;
   flex-direction: column;
-  width: 40vw;
-  justify-content: space-around;
-  margin: 12px;
+  gap: 4px;
 }
 
-#rightFooter {
+.footer-brand {
+  font-family: var(--font-marker);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 20px;
+  font-size: 0.88rem;
+  opacity: 0.85;
+}
+
+.footer-contact i {
+  margin-right: 4px;
+}
+
+#footer-right {
   display: flex;
   flex-direction: column;
-  width: 50vw;
-  margin: 12px;
-  justify-content: space-around;
+  align-items: flex-end;
+  gap: 6px;
 }
 
-#rightFooter h4 {
-  font-size: 1.5rem;
-  margin-top: 5px;
-  margin-bottom: 5px;
+.footer-tagline {
+  font-size: 0.88rem;
+  opacity: 0.85;
+  font-style: italic;
 }
 
 #social-icons {
   display: flex;
-  justify-content: space-evenly;
+  gap: 16px;
 }
 
-.valign-text {
+#social-icons a {
+  color: var(--white);
+  font-size: 1.4rem;
+  opacity: 0.8;
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+#social-icons a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ============================================================ *\
+*                       PAGE CONTENT                             *
+\* ============================================================ */
+
+#page-content {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  font-family: var(--font-marker);
+  font-size: 3.5rem;
+  color: var(--white);
+  text-shadow: 4px 4px 0 var(--dark-text);
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.25rem;
+  font-family: var(--font-hand);
+  margin-top: 8px;
+}
+
+/* ============================================================ *\
+*                       POSTS GRID                               *
+\* ============================================================ */
+
+#posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  padding: 8px 4px;
+}
+
+/* ============================================================ *\
+*                    BURN CARDS (Scrapbook pages)                *
+\* ============================================================ */
+
+.burn-card {
+  background-color: var(--cream);
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
+  box-shadow: 4px 5px 16px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  padding: 26px 28px 22px;
+  position: relative;
+}
+
+/* Tape strip on top */
+.burn-card::before {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 22px;
+  background: rgba(255, 240, 90, 0.6);
+  border: 1px solid rgba(180, 160, 0, 0.25);
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1.5deg);
+  border-radius: 2px;
+}
+
+/* Scrapbook rotation */
+.burn-card:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+
+.burn-card:nth-child(even) {
+  transform: rotate(0.9deg);
+}
+
+.burn-card:hover {
+  transform: rotate(0deg) scale(1.02) !important;
+  box-shadow: 6px 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* ============================================================ *\
+*                       TYPOGRAPHY                               *
+\* ============================================================ */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-marker);
+}
+
+.card-title {
+  font-family: var(--font-marker);
+  font-size: 1.6rem;
+  color: var(--dark-text);
+  border-bottom: 3px solid var(--hot-pink);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.card-title a {
+  color: var(--dark-text);
+}
+
+.card-title a:hover {
+  color: var(--hot-pink);
+}
+
+.card-meta {
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  color: var(--muted-pink);
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.card-content {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--body-text);
+}
+
+/* ============================================================ *\
+*                          FORMS                                 *
+\* ============================================================ */
+
+.burn-form {
+  background-color: var(--cream);
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
+  box-shadow: 4px 5px 16px rgba(0, 0, 0, 0.22);
+  padding: 36px 40px;
+  max-width: 540px;
+  margin: 60px auto;
+  position: relative;
+}
+
+.burn-form::before {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 22px;
+  background: rgba(255, 240, 90, 0.6);
+  border: 1px solid rgba(180, 160, 0, 0.25);
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  border-radius: 2px;
+}
+
+.burn-form h2 {
+  font-family: var(--font-marker);
+  color: var(--dark-text);
+  font-size: 2rem;
+  margin-bottom: 28px;
+  text-align: center;
+  border-bottom: 3px solid var(--hot-pink);
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--muted-pink);
+  margin-bottom: 4px;
+  font-style: italic;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--body-text);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--hot-pink);
+  padding: 6px 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--deep-pink);
+  background: rgba(255, 182, 193, 0.08);
+}
+
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+  display: block;
+}
+
+.form-actions {
   display: flex;
-}
-.valign-text i {
-  margin-right: 7px;
-}
-
-/* Login page */
-#login-card {
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  height: 45vh;
-  margin: auto;
-  padding: 10px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  z-index: 1000;
+  gap: 14px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 28px;
+  flex-wrap: wrap;
 }
 
-.login-input {
-  width: 80%;
-  margin: auto;
+/* ============================================================ *\
+*                         BUTTONS                                *
+\* ============================================================ */
+
+.btn-pink {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--white);
+  background-color: var(--hot-pink);
+  border: none;
+  padding: 10px 26px;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.22);
+  transition: background 0.2s, transform 0.1s;
+  display: inline-block;
 }
 
-#login-footer {
-  display: flex;
-  justify-content: space-evenly;
+.btn-pink:hover {
+  background-color: var(--deep-pink);
+  transform: translateY(-1px);
 }
 
-#login-card-header {
-  display: flex;
-  margin-left: 3%;
+.btn-pink:active {
+  transform: translateY(1px);
 }
 
-#signup-button {
+.btn-red {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--white);
+  background-color: var(--red);
+  border: none;
+  padding: 10px 26px;
+  border-radius: 24px;
+  cursor: pointer;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.22);
+  transition: background 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+.btn-red:hover {
+  background-color: #990000;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--hot-pink);
+  background: none;
+  border: 2px solid var(--hot-pink);
+  padding: 8px 22px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+
+.btn-ghost:hover {
+  background-color: var(--hot-pink);
+  color: var(--white);
+}
+
+/* ============================================================ *\
+*                        COMMENTS                                *
+\* ============================================================ */
+
+.comments-section {
+  margin-top: 32px;
+}
+
+.comments-section h3 {
+  font-family: var(--font-marker);
+  font-size: 1.5rem;
+  color: var(--white);
+  text-shadow: 2px 2px 0 var(--dark-text);
+  margin-bottom: 18px;
+}
+
+.comment-block {
+  background: var(--comment-bg);
+  border-left: 4px solid var(--hot-pink);
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border-radius: 0 8px 8px 0;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comment-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
 }
 
-/* Signu[ page */
-#signup-card {
+.comment-author {
+  font-style: italic;
+  color: var(--muted-pink);
+  font-size: 0.95rem;
+}
+
+.delete-comment-btn {
+  font-size: 0.85rem;
+  padding: 4px 12px;
+}
+
+.comment-form-card {
+  background-color: var(--cream);
+  border: 1px solid var(--card-border);
+  border-radius: 3px;
+  box-shadow: 4px 5px 16px rgba(0, 0, 0, 0.18);
+  padding: 24px 28px;
+  margin-top: 28px;
+  position: relative;
+}
+
+.comment-form-card::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 20px;
+  background: rgba(255, 240, 90, 0.6);
+  border: 1px solid rgba(180, 160, 0, 0.25);
+  position: absolute;
+  top: -10px;
+  left: 40px;
+  transform: rotate(-1deg);
+  border-radius: 2px;
+}
+
+.comment-form-card h3 {
+  font-family: var(--font-marker);
+  color: var(--dark-text);
+  font-size: 1.4rem;
+  margin-bottom: 16px;
+}
+
+/* ============================================================ *\
+*                        DASHBOARD                               *
+\* ============================================================ */
+
+.dashboard-wrap {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px 160px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.dashboard-header h1 {
+  font-family: var(--font-marker);
+  font-size: 2.8rem;
+  color: var(--white);
+  text-shadow: 3px 3px 0 var(--dark-text);
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--white);
+  font-size: 1.3rem;
+  font-family: var(--font-hand);
+  padding: 40px 0;
+  opacity: 0.9;
+}
+
+/* ============================================================ *\
+*                      SINGLE POST                               *
+\* ============================================================ */
+
+.single-post-wrap {
+  max-width: 760px;
+  margin: 40px auto;
+  padding: 0 24px 160px;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--white);
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.back-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ============================================================ *\
+*                       AUTH PAGES                               *
+\* ============================================================ */
+
+.auth-page {
   display: flex;
   flex-direction: column;
-  width: 80vw;
-  height: 45vh;
-  margin: auto;
-  padding: 10px;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  z-index: 1000;
-}
-
-.signup-input {
-  width: 80%;
-  margin: auto;
-}
-
-#signup-footer {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-#signup-card-header {
-  display: flex;
-  margin-left: 3%;
-}
-
-#login-button {
-  display: flex;
   align-items: center;
+  padding-top: 60px;
+  padding-bottom: 160px;
 }
 
-/* Post formatting */
-#all-posts {
-  height: 80vh;
+.auth-page .page-header {
+  margin-bottom: 0;
 }
+
+.auth-subtitle {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 6px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.auth-switch {
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--muted-pink);
+}
+
+.auth-switch a {
+  color: var(--hot-pink);
+  font-weight: 600;
+  border-bottom: 1px solid var(--hot-pink);
+}
+
+.error-text {
+  color: var(--red);
+  font-size: 0.95rem;
+  margin-top: 4px;
+  font-family: var(--font-hand);
+}
+
 /* ============================================================ *\
-*                           Helpers                              *
-\* -----------------------------------------------------------  */
+*                         404 PAGE                               *
+\* ============================================================ */
+
+#not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  background-color: var(--hot-pink);
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.3) 2px,
+    transparent 2px
+  );
+  background-size: 28px 28px;
+  padding: 40px 24px;
+}
+
+#not-found h1 {
+  font-family: var(--font-marker);
+  font-size: 4rem;
+  color: var(--white);
+  text-shadow: 4px 4px 0 var(--dark-text);
+  margin-bottom: 16px;
+}
+
+#not-found img {
+  max-width: 380px;
+  width: 90%;
+  border-radius: 6px;
+  margin: 20px 0;
+  box-shadow: 6px 8px 24px rgba(0, 0, 0, 0.35);
+  transform: rotate(-2deg);
+}
+
+#not-found p {
+  font-family: var(--font-marker);
+  font-size: 1.8rem;
+  color: var(--white);
+  text-shadow: 2px 2px 0 var(--dark-text);
+  margin: 12px 0;
+}
+
+#not-found a {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--cream);
+  border-bottom: 2px solid var(--cream);
+  padding-bottom: 2px;
+  margin-top: 12px;
+  display: inline-block;
+}
+
+#not-found a:hover {
+  color: var(--white);
+  border-bottom-color: var(--white);
+}
 
 /* ============================================================ *\
-*      Media Queries (Alphabetical by screen size break          *
-\* -----------------------------------------------------------  */
+*                      RESPONSIVE                                *
+\* ============================================================ */
 
-/* ----------       Mobile Devices <= 600px S       ------------ */
+@media (max-width: 768px) {
+  #header-wrapper {
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-@media only screen and (max-width: 599px) {
+  #site-title {
+    font-size: 1.5rem;
+  }
+
+  #logo {
+    height: 40px;
+  }
+
+  #nav-links {
+    gap: 6px;
+  }
+
+  #posts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .burn-form {
+    margin: 30px 16px;
+    padding: 24px 20px;
+  }
+
+  #footerContainer {
+    height: auto;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 12px 16px;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+  }
+
+  #footer-right {
+    align-items: center;
+  }
+
+  #social-icons {
+    justify-content: center;
+  }
+
+  .dashboard-wrap,
+  .single-post-wrap {
+    padding: 0 16px 160px;
+  }
+
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
 }
-
-/* ----------       Tablet Devices > 600px M      ------------- */
-
-@media only screen and (max-width: 600px) {
-}
-
-/* ----------       Desktop Devices > 992px L     ------------- */
-
-@media only screen and (max-width: 992px) {
-}
-
-/* ------       Large Desktop Devices > 1200px  XL      ------ */
-
-@media only screen and (max-width: 1200px) {
-}
-
-/* ============================================================ *\
-*                        Example Heading                         *
-\* -----------------------------------------------------------  */
-
-/* -------------       Example Sub-Heading       --------------- */

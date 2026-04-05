@@ -1,25 +1,28 @@
-<div class="post card">
-  <div class="card-header">
+<div class='auth-page'>
+  <div class='burn-form' style='max-width: 660px;'>
     <h2>Edit Post</h2>
+    <form id='edit-post-form'>
+      <input type='hidden' name='post-id' value='{{post.id}}' />
+
+      <div class='form-group'>
+        <label for='post-title'>Title</label>
+        <input type='text' id='post-title' name='post-title' value='{{post.title}}' />
+      </div>
+
+      <div class='form-group'>
+        <label for='post-body'>Content</label>
+        <textarea id='post-body' name='post-body'>{{post.post_text}}</textarea>
+      </div>
+
+      <div class='form-actions'>
+        <div style='display: flex; gap: 10px;'>
+          <button type='submit' class='btn-pink'>Update</button>
+          <button type='button' id='delete-btn' class='btn-red'>Delete</button>
+        </div>
+        <a href='/dashboard' class='btn-ghost'>Cancel</a>
+      </div>
+    </form>
   </div>
-  <form id="edit-post-form" class="card-body">
-    <input type="hidden" name="post-id" value="{{post.id}}" />
-
-    <label class="form-label" for="post-title">Title</label>
-    <input
-      type="text"
-      name="post-title"
-      value="{{post.title}}"
-      class="form-input"
-    />
-
-    <label class="form-label" for="post-body">Content</label>
-    <textarea name="post-body" class="form-input">{{post.body}}</textarea>
-
-    <button type="submit" class="btn">Update</button>
-
-    <button type="button" id="delete-btn" class="btn">Delete</button>
-  </form>
 </div>
 
-<script src="/js/edit.js"></script>
+<script src='/js/edit.js'></script>
