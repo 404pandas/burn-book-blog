@@ -35,7 +35,7 @@
     "postId": 3
   },
   {
-    "comment_text": "What? He's a good kisser",
+    "comment_text": "What? He's a good kisser.",
     "userId": 6,
     "postId": 3
   },
@@ -58,5 +58,155 @@
     "comment_text": "Gretchen Wieners has cracked.",
     "userId": 1,
     "postId": 7
+  },
+  {
+    "comment_text": "We literally just pulled up, Regina.",
+    "userId": 1,
+    "postId": 10
+  },
+  {
+    "comment_text": "Mom, please stop. You're embarrassing me.",
+    "userId": 3,
+    "postId": 11
+  },
+  {
+    "comment_text": "Regina, it's called being a supportive mother.",
+    "userId": 13,
+    "postId": 11
+  },
+  {
+    "comment_text": "It's literally just a rule. Don't question it.",
+    "userId": 4,
+    "postId": 9
+  },
+  {
+    "comment_text": "I forgot it was Wednesday. I wore blue.",
+    "userId": 6,
+    "postId": 9
+  },
+  {
+    "comment_text": "Karen. We literally told you this morning.",
+    "userId": 3,
+    "postId": 9
+  },
+  {
+    "comment_text": "Yes. Yes it is. Now stop eating it.",
+    "userId": 1,
+    "postId": 19
+  },
+  {
+    "comment_text": "That explains so much about you, Regina.",
+    "userId": 1,
+    "postId": 16
+  },
+  {
+    "comment_text": "It's called volume. It's a choice. A powerful choice.",
+    "userId": 3,
+    "postId": 16
+  },
+  {
+    "comment_text": "Thank you, Damian. Truly.",
+    "userId": 16,
+    "postId": 15
+  },
+  {
+    "comment_text": "You're seriously not going to let me sit down?",
+    "userId": 1,
+    "postId": 17
+  },
+  {
+    "comment_text": "The table is FULL. There is no room. End of story.",
+    "userId": 3,
+    "postId": 17
+  },
+  {
+    "comment_text": "Wait, he talked to you?! On October 3rd?!",
+    "userId": 4,
+    "postId": 22
+  },
+  {
+    "comment_text": "Math? Like... with numbers?",
+    "userId": 6,
+    "postId": 22
+  },
+  {
+    "comment_text": "Karen, that is not how ESPN works. At all.",
+    "userId": 4,
+    "postId": 21
+  },
+  {
+    "comment_text": "It totally is though. My left one is especially accurate.",
+    "userId": 6,
+    "postId": 21
+  },
+  {
+    "comment_text": "Gretchen. Stop trying to make fetch happen.",
+    "userId": 3,
+    "postId": 24
+  },
+  {
+    "comment_text": "I don't think feminism works that way, Gretchen.",
+    "userId": 1,
+    "postId": 24
+  },
+  {
+    "comment_text": "Damian. It was one shirt. One.",
+    "userId": 4,
+    "postId": 26
+  },
+  {
+    "comment_text": "It was MY pink shirt, Gretchen. MY pink shirt.",
+    "userId": 7,
+    "postId": 26
+  },
+  {
+    "comment_text": "Regina, you have been eating a LOT of those Kalteen bars lately...",
+    "userId": 4,
+    "postId": 27
+  },
+  {
+    "comment_text": "WHY WOULD YOU TELL ME THAT NOW?!",
+    "userId": 3,
+    "postId": 27
+  },
+  {
+    "comment_text": "I literally just bought that skirt yesterday. YESTERDAY.",
+    "userId": 6,
+    "postId": 28
+  },
+  {
+    "comment_text": "It looked better on the rack. Sorry, not sorry.",
+    "userId": 3,
+    "postId": 28
+  },
+  {
+    "comment_text": "Did you... did you just say grool?",
+    "userId": 2,
+    "postId": 34
+  },
+  {
+    "comment_text": "It was an accident. My mouth did it without asking me.",
+    "userId": 1,
+    "postId": 34
+  },
+  {
+    "comment_text": "Oh my god. He is literally rapping about derivatives right now.",
+    "userId": 7,
+    "postId": 30
+  },
+  {
+    "comment_text": "I am fully deceased. Someone call my mom.",
+    "userId": 5,
+    "postId": 30
+  },
+  {
+    "comment_text": "He said this to my face. During a math competition. In front of everyone.",
+    "userId": 1,
+    "postId": 37
+  },
+  {
+    "comment_text": "This is actually really deep, Cady. Like unexpectedly deep.",
+    "userId": 5,
+    "postId": 1
   }
 ]

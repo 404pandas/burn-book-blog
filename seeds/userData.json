@@ -1,42 +1,22 @@
 [
-  {
-    "username": "cady_heron",
-    "password": "password123"
-  },
-  {
-    "username": "aaron_samuels",
-    "password": "password123"
-  },
-  {
-    "username": "regina_george",
-    "password": "password123"
-  },
-  {
-    "username": "gretchen_wieners",
-    "password": "password123"
-  },
-  {
-    "username": "janis_ian",
-    "password": "password123"
-  },
-  {
-    "username": "karen_smith",
-    "password": "password123"
-  },
-  {
-    "username": "damian",
-    "password": "password123"
-  },
-  {
-    "username": "coach_carr",
-    "password": "password123"
-  },
-  {
-    "username": "crying_girl",
-    "password": "password123"
-  },
-  {
-    "username": "testaccount",
-    "password": "password123"
-  }
+  { "username": "cady_heron",        "password": "password123" },
+  { "username": "aaron_samuels",     "password": "password123" },
+  { "username": "regina_george",     "password": "password123" },
+  { "username": "gretchen_wieners",  "password": "password123" },
+  { "username": "janis_ian",         "password": "password123" },
+  { "username": "karen_smith",       "password": "password123" },
+  { "username": "damian",            "password": "password123" },
+  { "username": "coach_carr",        "password": "password123" },
+  { "username": "crying_girl",       "password": "password123" },
+  { "username": "testaccount",       "password": "password123" },
+  { "username": "ms_norbury",        "password": "password123" },
+  { "username": "mr_duvall",         "password": "password123" },
+  { "username": "mrs_george",        "password": "password123" },
+  { "username": "taylor_wedell",     "password": "password123" },
+  { "username": "kevin_gnapoor",     "password": "password123" },
+  { "username": "glen_coco",         "password": "password123" },
+  { "username": "bethany_marvell",   "password": "password123" },
+  { "username": "dawn_schweitzer",   "password": "password123" },
+  { "username": "amber_d_alessio",   "password": "password123" },
+  { "username": "shane_oman",        "password": "password123" }
 ]
